@@ -1,3 +1,15 @@
 #!/bin/bash
 
-cp www/* /var/www/html/merylandchris
+STAGING_DIR=/var/www/html/staging.merylandchris
+PROD_DIR=/var/www/html/merylandchris
+
+if [[ $1 == 'staging' ]]; then
+  echo "Pushing to staging.merylandchris.com"
+  cp -r www/* "$STAGING_DIR"
+elif [[ $1 == 'prod' ]]; then
+  echo "Pushing STAGING to PROD merylandchris.com"
+  cp -r "$STAGING_DIR/*" "$PROD_DIR"
+else
+  echo "Doing nothing. Please specify staging or prod."
+  exit 1
+fi
