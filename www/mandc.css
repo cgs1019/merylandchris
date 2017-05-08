@@ -25,6 +25,9 @@ a {
   position: fixed;
   top: 0;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
+  overflow: hidden;
+  background-color: #fff;
+  z-index:1;
 }
 
 .nav {
@@ -36,7 +39,6 @@ a {
 }
 
 .nav a:not(:last-child) {
-  display: inline-block;
   padding-right: 15px;
 }
 
@@ -46,7 +48,6 @@ a {
     font-size: 30px;
     padding-top: 3px;
   }
-  .push { margin-bottom: 60px; }
 }
 
 @media screen and (max-width: 600px) {
@@ -55,7 +56,6 @@ a {
     font-size: 20px;
     padding-top: 3px;
   }
-  .push { margin-bottom: 30px; }
 }
 
 @media screen and (min-width: 300px) and (max-width: 400px) {
@@ -63,7 +63,121 @@ a {
   .nav {
     font-size: 14px;
   }
-  .push { margin-bottom: 30px; }
 }
 
 
+/* Content */
+.content {
+  width: 100%;
+  position:absolute;
+  overflow-y:scroll;        
+  z-index: 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .content { top: 60px; }
+}
+
+@media screen and (max-width: 600px) {
+  .content { top: 30px; }
+}
+
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  .content { top: 30px; }
+}
+
+
+/* Cards */
+.card {
+  display: inline-block;
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    width: 540px;
+    height: 360px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 540px;
+    height: 360px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
+    margin-top: 20px;
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  .card {
+    width: 280px;
+    height: 220px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
+    margin-top: 10px;
+    padding: 10px;
+  }
+}
+
+.the-who {
+  background-color: #fff;
+  vertical-align:top;
+}
+
+.the-who .wrapper {
+  color: rgba(255, 255, 255, .8);
+  background-color: #a77;
+  padding: 10px;
+  height: calc(100% - 20px);
+}
+
+.the-who .cursive {
+  font-size: 100px;
+  text-align: left;
+  line-height: 100px;
+}
+
+.the-who .serif {
+  margin-top: 50px;
+  margin-right: 10px;
+  font-size: 60px;
+  text-align: right;
+  line-height: 100px;
+  font-style: italic;
+}
+
+.the-when {
+  color: #a77;
+}
+
+.the-when .cursive {
+  margin-top: 40px;
+  font-size: 100px;
+}
+
+.the-when .serif {
+  font-style: italic;
+  margin-top: 50px;
+  font-size: 60px;
+}
+
+.the-where {
+  color: #a77;
+}
+
+.the-where .cursive {
+  margin-top: 40px;
+  font-size: 100px;
+  line-height: 100px;
+}
+
+.the-where .serif {
+  font-size: 60px;
+  font-style: italic;
+  opacity: .8;
+}
