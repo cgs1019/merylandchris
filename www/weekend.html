@@ -3,7 +3,7 @@
 <head>
 <title>Meryl &amp; Chris - Weekend</title>
 <link href="https://fonts.googleapis.com/css?family=Amiri|Niconne" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../mandc.css"></link>
+<link rel="stylesheet" type="text/css" href="mandc.css" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -12,22 +12,127 @@
   ga('create', 'UA-89452329-1', 'auto');
   ga('send', 'pageview');
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
 <div class="header">
-  <div class="nav serif">
-    <a href="/">Home</a>
-    <a href="/weekend">Weekend</a>
-    <a href="/travel">Travel</a>
-    <a href="/rsvp">RSVP</a>
-    <a href="/registry">Registry</a>
+  <div class="nav">
+    <ul>
+      <li><a href="/">Home</a></li><!--
+      --><li class="current"><a href="/weekend.html">Weekend</a></li><!--
+      --><li><a href="/travel.html">Travel</a></li><!--
+      --><li><a href="/rsvp.html">RSVP</a></li><!--
+      --><li><a href="/registry.html">Registry</a></li>
+    </ul>
   </div>
 </div>
-<div class="push"></div>
 
 <div class="content">
-</div>
+  <div class="slide red weekend-high-level">
+    <div class="wrapper">
+      <h1>Events</h1>
+      <div class="note">(Click or scroll for details)</div>
+      <h2 class="link friday-link">Friday: Welcome</a></h2>
+      <h2 class="link saturday-link">Saturday: Wedding</h2>
+      <h2 class="link sunday-link">Sunday: Picnic</h2>
+    </div>
+  </div>
 
+  <div class="slide blue" id="friday">
+    <h3 class="link top-link">Back to top</h3>
+
+    <div class="body">
+      <h1>Friday</h1>
+
+      <h3>Join us for drinks at Tupper & Reed in Berkeley</h2>
+      <div class="map">
+        <iframe
+            width="50%"
+            height="50%"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCseZ7Am9WwjzemYrPflcvGma6f1jaxJUs&q=Tupper+Reed,Berkeley+CA">
+        </iframe>
+      </div>
+    </div>
+
+    <h3 class="bottom-link link saturday-link">Saturday</h3>
+  </div>
+
+  <div class="slide purple" id="saturday">
+    <h3 class="link top-link">Back to top</h3>
+
+    <div class="body">
+      <h1>Saturday</h1>
+
+      <h3>Ceremony: 4pm at Berkeley City Club. Reception to follow</h3>
+      <iframe
+          width="50%"
+          height="50%"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCseZ7Am9WwjzemYrPflcvGma6f1jaxJUs&q=Berkeley+City+Club,Berkeley+CA">
+      </iframe>
+    </div>
+
+    <h3 class="link sunday-link">Sunday</h3>
+  </div>
+
+  <div class="slide green" id="sunday">
+    <h3 class="link top-link">Back to top</h3>
+
+    <div class="body">
+      <h1>Sunday</h1>
+      <h2>Picnic in the park</h2>
+      <h3>Exactly which park, TBD</h3>
+    </div>
+  </div>
+</div>
 </body>
+<script>
+$(document).ready(function() {
+  $(".friday-link").click(function() {
+    console.log("click");
+    console.log($(".content").scrollTop());
+    console.log($("#friday").offset().top);
+    console.log($(".header").height())
+
+    $('.content').animate({
+      scrollTop:
+          $(".content").scrollTop() +
+          $("#friday").offset().top -
+          $(".header").height()
+    }, 400);
+  });
+
+  $(".saturday-link").click(function() {
+    console.log("click");
+    console.log($(".content").scrollTop());
+    console.log($("#saturday").offset().top);
+    console.log($(".header").height())
+    $('.content').animate({
+      scrollTop:
+          $(".content").scrollTop() +
+          $("#saturday").offset().top -
+          $(".header").height()
+    }, 400);
+  });
+
+  $(".sunday-link").click(function() {
+    console.log("click");
+    console.log($("#sunday").offset().top);
+    console.log($(".header").height())
+    $('.content').animate({
+      scrollTop:
+          $(".content").scrollTop() +
+          $("#sunday").offset().top -
+          $(".header").height()
+    }, 400);
+  });
+
+  $(".top-link").click(function() {
+    console.log("click");
+    $('.content').animate({ scrollTop: 0 }, 400);
+  });
+});
+</script>
 </html>

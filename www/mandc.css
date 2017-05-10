@@ -1,22 +1,39 @@
-/*  Styles that apply to the whole page */
-body {
-  margin: 0;
-  background: #fff;
+/**
+ * Notes:
+ *   mint green: #8ae, or rgb(136, 238, 170)
+ *   mint blue : #8ea, or rgb(136, 170, 238)
+ */
+
+/* NORMALIZATION */
+html { height: 100%; }
+body { height: 100%; margin: 0;}
+h1, h2, h3 { margin: 0; padding: 0; font-weight: normal; }
+ul, li { margin: 0; padding: 0; display: inline-block; list-style: none; }
+
+li {
+  height: 100%;
 }
 
-.cursive {
-  font-family: 'Niconne', cursive;
-}
-
-.serif {
-  font-family: 'Amiri', serif;
-}
-
-a {
+li a {
   text-decoration: none;
-  color: #a77;
+  color: rgba(0, 0, 0, .5);
 }
 
+li.current a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, .5);
+  color: rgba(255, 255, 255, 1);
+}
+
+.nav li.current, .nav li.current:hover {
+  background-color: rgba(0, 0, 0, .15);
+  color: rgba(0, 0, 0, .1);
+}
+
+.nav li:hover {
+  background-color: rgba(0, 0, 0, .05);
+  color: rgba(0, 0, 0, .1);
+}
 
 
 /* Styles for the header nav */
@@ -26,42 +43,37 @@ a {
   top: 0;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
   overflow: hidden;
-  background-color: #fff;
   z-index:1;
+  background-color: #fff;
 }
 
 .nav {
+  height: 100%;
   text-align: center;
+  font-family: 'Amiri', serif;
 }
 
-.nav a {
-  padding-left: 5px;
-}
-
-.nav a:not(:last-child) {
-  padding-right: 15px;
-}
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .header { height: 60px; }
   .nav {
     font-size: 30px;
-    padding-top: 3px;
+    line-height: 60px;
+  }
+  .nav a {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .header { height: 30px; }
-  .nav {
-    font-size: 20px;
-    padding-top: 3px;
-  }
-}
-
-@media screen and (min-width: 300px) and (max-width: 400px) {
+@media screen and (min-width: 300px) and (max-width: 700px) {
   .header { height: 30px; }
   .nav {
     font-size: 14px;
+    line-height: 30px;
+  }
+  .nav a {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -69,115 +81,131 @@ a {
 /* Content */
 .content {
   width: 100%;
-  position:absolute;
-  overflow-y:scroll;        
+  position: absolute;
+  overflow-y: scroll;        
   z-index: 0;
   text-align: center;
+
+  /* Fixes non-momentum scrolling caused by overflow-y on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (min-width: 600px) {
-  .content { top: 60px; }
-}
-
-@media screen and (max-width: 600px) {
-  .content { top: 30px; }
-}
-
-@media screen and (min-width: 300px) and (max-width: 400px) {
-  .content { top: 30px; }
-}
-
-
-/* Cards */
-.card {
-  display: inline-block;
-}
-
-@media screen and (min-width: 600px) {
-  .card {
-    width: 540px;
-    height: 360px;
-    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
-    margin-left: 20px;
-    margin-top: 20px;
-    padding: 15px;
+@media screen and (min-width: 700px) {
+  .content {
+    top: 60px;
+    height: calc(100% - 60px);
   }
 }
 
-@media screen and (max-width: 600px) {
-  .card {
-    width: 540px;
-    height: 360px;
-    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
-    margin-top: 20px;
-    padding: 15px;
+@media screen and (min-width: 300px) and (max-width: 700px) {
+  .content {
+    top: 30px;
+    height: calc(100% - 30px);
   }
 }
 
-@media screen and (min-width: 300px) and (max-width: 400px) {
-  .card {
-    width: 280px;
-    height: 220px;
-    box-shadow: 0px 2px 7px rgba(0, 0, 0, .2);
-    margin-top: 10px;
-    padding: 10px;
-  }
+.note {
+  font-family: 'Amiri', serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, .4);
 }
 
-.the-who {
-  background-color: #fff;
-  vertical-align:top;
+.slide {
+  width: 100%;
+  height: 100%;
 }
 
-.the-who .wrapper {
-  color: rgba(255, 255, 255, .8);
-  background-color: #a77;
-  padding: 10px;
-  height: calc(100% - 20px);
+.slide h1 {
+  font-family: 'Niconne', cursive;
+  font-weight: normal;
+  color: rgba(255, 255, 255, .9);
 }
 
-.the-who .cursive {
-  font-size: 100px;
-  text-align: left;
-  line-height: 100px;
-}
-
-.the-who .serif {
-  margin-top: 50px;
-  margin-right: 10px;
-  font-size: 60px;
-  text-align: right;
-  line-height: 100px;
+.slide h2 {
+  font-family: 'Amiri', serif;
   font-style: italic;
+  font-weight: normal;
+  color: rgba(0, 0, 0, .4);
 }
 
-.the-when {
-  color: #a77;
-}
-
-.the-when .cursive {
-  margin-top: 40px;
-  font-size: 100px;
-}
-
-.the-when .serif {
+.slide h3 {
+  font-family: 'Amiri', serif;
   font-style: italic;
-  margin-top: 50px;
-  font-size: 60px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, .4);
 }
 
-.the-where {
-  color: #a77;
+.slide.green {
+  background: #8ea;  /* 136 238 170 */
 }
 
-.the-where .cursive {
-  margin-top: 40px;
-  font-size: 100px;
-  line-height: 100px;
+.slide.blue {
+  background: #8ae;  /* 136 170 238 */
 }
 
-.the-where .serif {
-  font-size: 60px;
-  font-style: italic;
-  opacity: .8;
+.slide.red {
+  background: #ea8; /* 170 238 136 */
+}
+
+.slide.purple {
+  background: #a8e; /* 170 136 238 */
+}
+
+@media screen and (min-width: 700px) {
+  .slide h1 { font-size: 120px; }
+  .slide h2 { font-size: 60px; }
+  .slide h3 { font-size: 30px; }
+  .note { font-size: 24px; }
+}
+
+@media screen and (min-width: 300px) and (max-width: 700px) {
+  .slide h1 { font-size: 60px; }
+  .slide h2 { font-size: 30px; }
+  .slide h3 { font-size: 20px; }
+  .note { font-size: 12px; }
+}
+
+@media screen and (min-height: 700px) {
+  .slide .wrapper { padding-top: 150px; }
+  .slide.weekend-high-level .wrapper { padding-top: 100px; }
+  .slide .top-link { height: 50px; }
+  .slide .body { height: calc(100% - 100px); }
+  .slide .bottom-link { height: 50px; }
+}
+
+@media (min-height: 300px) and (max-height: 700px) {
+  .slide .wrapper { padding-top: 30px; }
+  .slide .top-link { height: 30px; }
+  .slide .body { height: calc(100% - 60px); }
+  .slide .bottom-link { height: 30px; }
+}
+
+
+/* WIDEPIC */
+.widepic {
+  background: #fff;
+}
+
+.widepic img {
+  width: 100%;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.slide.weekend-high-level hr {
+  border: 0;
+  width: 25%;
+  border-bottom: 1px solid #666;
+  background: #999;
+}
+
+a {
+  font-style: normal;
+  color: rgba(255, 255, 255, .7);
+}
+
+h3 a.zola-registry-embed {
+  color: rgba(255, 255, 255, 0);
 }
