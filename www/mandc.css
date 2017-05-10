@@ -136,19 +136,23 @@ li.current a {
 }
 
 .slide.green {
-  background: #8ea;  /* 136 238 170 */
+  background: #8ea;
 }
 
 .slide.blue {
-  background: #8ae;  /* 136 170 238 */
+  background: #8ae;
 }
 
-.slide.red {
-  background: #ea8; /* 170 238 136 */
+.slide.pink {
+  background: #e8a;
 }
 
 .slide.purple {
-  background: #a8e; /* 170 136 238 */
+  background: #a8e;
+}
+
+.slide.orange {
+  background: #ea8;
 }
 
 @media screen and (min-width: 700px) {
@@ -208,4 +212,16 @@ a {
 
 h3 a.zola-registry-embed {
   color: rgba(255, 255, 255, 0);
+}
+
+.no-presha {
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 300px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Amiri', serif;
+  color: rgba(0, 0, 0, .7);
+  line-height: 20px;
 }
