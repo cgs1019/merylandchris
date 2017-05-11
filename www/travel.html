@@ -13,6 +13,7 @@
   ga('create', 'UA-89452329-1', 'auto');
   ga('send', 'pageview');
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -30,41 +31,122 @@
 
 <div class="content">
   <div class="slide purple">
-    <h1>Hotels</h1>
+    <h1>Air travel</h1>
+    <div class="note">
+      There are 2 nearby airports -
+      <a target="_blank" href="https://www.google.com/flights/#search;t=SFO">SFO</a>
+      and
+      <a target="_blank" href="https://www.google.com/flights/#search;t=OAK">OAK</a>.
+    </div>
+    <img class="bart-map" src="images/bart_map.png"/>
+    <div class="note">
+      We recommend taking <a target="_blank" href="http://bart.gov">BART</a> to the
+      <i>Downtown Berkeley</i> stop.
+    </div>
 
-    <h3>
-      <a target="_blank" href="http://berkeleycityclub.com/hotel/">Berkeley City Club</a> <span class="note">$$$</span>
-      <br/>
-    </h3>
-    <span class="note">
-      This is where we'll be staying, and where the wedding will be!
-      <!--$272.50+ per night-->
-    </span>
+    <div class="note">
+      For <span class="link hotels-link">hotel</span> and
+      <span class="link ground-transportation-link">ground transportation</span>
+      ideas, see below
+    </div>
+  </div>
 
-    <h3>
-      <a target="_blank" href="http://www.hotelshattuckplaza.com/">Hotel Shattuck Plaza</a> <span class="note">$$</span>
-      <br/>
-    </h3>
-    <span class="note">
-      We visited this hotel and it seemed very nice! Great location
-      <!--$225+ per night-->
-    </span>
+  <div class="slide pink" id="hotels">
+    <div class="link top-link">Back to top</div>
 
-    <h3>
-      <a target="_blank" href="https://www.wyndhamhotels.com/travelodge/berkeley-california/berkeley-travelodge/overview?cid=fe:tl:20161215:yl:pp:tlus:07017&tel=18007606483">Travelodge Berkeley</a> <span class="note">$</span>
-      <br/>
-    </h3>
-    <span class="note">
-      Also very close to venue and BART!
-      <!--$169+ per night-->
-    </span>
+    <div class="body">
+      <h1>Hotels</h1>
+      <h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://berkeleycityclub.com/hotel/">Berkeley City Club</a> <span class="note">$$$</span>
+        <br/>
+      </h3>
+      <div class="note">
+        This is where we'll be staying, and where the wedding will be!
+        <!--$272.50+ per night-->
+      </div>
+      <br />
 
-    <h3>
-      <a target="_blank" href="http://www.airbnb.com">Airbnb</a> <span class="note">$ - $$$</span>
-      <br/>
-    </h3>
+      <h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.hotelshattuckplaza.com/">Hotel Shattuck Plaza</a> <span class="note">$$</span>
+        <br/>
+      </h3>
+      <div class="note">
+        We visited this hotel and it seemed very nice! Great location
+        <!--$225+ per night-->
+      </div>
+      <br />
+
+      <h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://www.wyndhamhotels.com/travelodge/berkeley-california/berkeley-travelodge/overview?cid=fe:tl:20161215:yl:pp:tlus:07017&tel=18007606483">Travelodge Berkeley</a> <span class="note">$</span>
+        <br/>
+      </h3>
+      <div class="note">
+        Also very close to venue and BART!
+        <!--$169+ per night-->
+      </div>
+      <br />
+
+      <h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        <a target="_blank" href="http://www.airbnb.com">Airbnb</a> <span class="note">$ - $$$</span>
+        <br/>
+      </h3>
+    </div>
+
+    <div class="link bottom-link ground-transportation-link">Ground transportation</div>
+  </div>
+
+  <div class="slide orange" id="ground-transportation">
+    <div class="link top-link">Back to top</div>
+    <h1>Getting around</h1>
+    <h3>Should I rent a car?</h3>
+    <div class="note">
+      If you're planning on staying within San Francisco and Berkeley, sticking
+      to <a target="_blank" href="http://bart.gov">BART</a> and other urban
+      transit (<a target="_blank" href="https://www.uber.com/">Uber</a>/
+      <a target="_blank" href="https://www.lyft.com/">Lyft</a>,
+      public transportation) is probably your best bet.
+    </div>
+
+    <hr />
+
+    <div class="note">
+      If you'd like to explore beyond the San Francisco/Berkeley area, you'll
+      need to rent a car. <i>Parking in Berkeley and San Francisco can be
+        tough</i>,
+      so we recommend checking with your hotel/bnb to see if they provide
+      parking.
+    </div>
   </div>
 </div>
 
 </body>
+<script>
+$(document).ready(function() {
+  $(".hotels-link").click(function() {
+    $('.content').animate({
+      scrollTop:
+          $(".content").scrollTop() +
+          $("#hotels").offset().top -
+          $(".header").height()
+    }, 400);
+  });
+
+  $(".ground-transportation-link").click(function() {
+    $('.content').animate({
+      scrollTop:
+          $(".content").scrollTop() +
+          $("#ground-transportation").offset().top -
+          $(".header").height()
+    }, 400);
+  });
+
+  $(".top-link").click(function() {
+    console.log("click");
+    $('.content').animate({ scrollTop: 0 }, 400);
+  });
+});
+</script>
+
 </html>

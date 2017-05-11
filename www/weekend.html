@@ -41,7 +41,7 @@
   </div>
 
   <div class="slide blue" id="friday">
-    <h3 class="link top-link">Back to top</h3>
+    <div class="link top-link">Back to top</div>
 
     <div class="body">
       <h1>Friday</h1>
@@ -57,11 +57,11 @@
       </div>
     </div>
 
-    <h3 class="bottom-link link saturday-link">Saturday</h3>
+    <div class="link bottom-link saturday-link">Saturday</div>
   </div>
 
   <div class="slide purple" id="saturday">
-    <h3 class="link top-link">Back to top</h3>
+    <div class="link top-link">Back to top</div>
 
     <div class="body">
       <h1>Saturday</h1>
@@ -75,11 +75,11 @@
       </iframe>
     </div>
 
-    <h3 class="link sunday-link">Sunday</h3>
+    <div class="link bottom-link sunday-link">Sunday</div>
   </div>
 
   <div class="slide green" id="sunday">
-    <h3 class="link top-link">Back to top</h3>
+    <div class="link top-link">Back to top</div>
 
     <div class="body">
       <h1>Sunday</h1>
@@ -92,11 +92,6 @@
 <script>
 $(document).ready(function() {
   $(".friday-link").click(function() {
-    console.log("click");
-    console.log($(".content").scrollTop());
-    console.log($("#friday").offset().top);
-    console.log($(".header").height())
-
     $('.content').animate({
       scrollTop:
           $(".content").scrollTop() +

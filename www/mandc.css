@@ -8,18 +8,17 @@
 html { height: 100%; }
 body { height: 100%; margin: 0;}
 h1, h2, h3 { margin: 0; padding: 0; font-weight: normal; }
-ul, li { margin: 0; padding: 0; display: inline-block; list-style: none; }
+ul, li { margin: 0; padding: 0; }
 
-li {
-  height: 100%;
-}
+.nav ul, .nav li {display: inline-block; list-style: none; }
+.nav li { height: 100%; }
 
-li a {
+.nav li a {
   text-decoration: none;
   color: rgba(0, 0, 0, .5);
 }
 
-li.current a {
+.nav li.current a {
   text-decoration: none;
   color: rgba(0, 0, 0, .5);
   color: rgba(255, 255, 255, 1);
@@ -53,30 +52,6 @@ li.current a {
   font-family: 'Amiri', serif;
 }
 
-@media screen and (min-width: 700px) {
-  .header { height: 60px; }
-  .nav {
-    font-size: 30px;
-    line-height: 60px;
-  }
-  .nav a {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-@media screen and (min-width: 300px) and (max-width: 700px) {
-  .header { height: 30px; }
-  .nav {
-    font-size: 14px;
-    line-height: 30px;
-  }
-  .nav a {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
 
 /* Content */
 .content {
@@ -90,24 +65,13 @@ li.current a {
   -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (min-width: 700px) {
-  .content {
-    top: 60px;
-    height: calc(100% - 60px);
-  }
-}
-
-@media screen and (min-width: 300px) and (max-width: 700px) {
-  .content {
-    top: 30px;
-    height: calc(100% - 30px);
-  }
-}
-
 .note {
   font-family: 'Amiri', serif;
   font-style: normal;
-  color: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .6);
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 300px;
 }
 
 .slide {
@@ -135,53 +99,52 @@ li.current a {
   color: rgba(0, 0, 0, .4);
 }
 
-.slide.green {
-  background: #8ea;
-}
+.slide.green { background: #8ea; }
+.slide.blue { background: #8ae; }
+.slide.pink { background: #e8a; }
+.slide.purple { background: #a8e; }
+.slide.orange { background: #ea8; }
 
-.slide.blue {
-  background: #8ae;
-}
-
-.slide.pink {
-  background: #e8a;
-}
-
-.slide.purple {
-  background: #a8e;
-}
-
-.slide.orange {
-  background: #ea8;
-}
-
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 700px) and (min-height: 500px) {
+  .content { top: 60px; height: calc(100% - 60px); }
   .slide h1 { font-size: 120px; }
   .slide h2 { font-size: 60px; }
   .slide h3 { font-size: 30px; }
   .note { font-size: 24px; }
+  img.bart-map { width: 400px; height: 400px; }
+  .slide .wrapper { padding-top: 150px; }
+  .slide.weekend-high-level .wrapper { padding-top: 100px; }
+  .slide .top-link { height: 50px; font-size: 30px; }
+  .slide .body { height: calc(100% - 100px); }
+  .slide .bottom-link { height: 50px; font-size: 30px; }
+  .header { height: 60px; }
+  .nav { font-size: 30px; line-height: 60px; }
+  .nav a { padding-left: 15px; padding-right: 15px; }
 }
 
 @media screen and (min-width: 300px) and (max-width: 700px) {
+  .content { top: 30px; height: calc(100% - 30px); }
   .slide h1 { font-size: 60px; }
   .slide h2 { font-size: 30px; }
   .slide h3 { font-size: 20px; }
   .note { font-size: 12px; }
-}
-
-@media screen and (min-height: 700px) {
-  .slide .wrapper { padding-top: 150px; }
-  .slide.weekend-high-level .wrapper { padding-top: 100px; }
-  .slide .top-link { height: 50px; }
-  .slide .body { height: calc(100% - 100px); }
-  .slide .bottom-link { height: 50px; }
-}
-
-@media (min-height: 300px) and (max-height: 700px) {
+  img.bart-map { width: 300px; height: 300px; }
   .slide .wrapper { padding-top: 30px; }
-  .slide .top-link { height: 30px; }
+  .slide .top-link { height: 25px; padding-top: 5px; }
   .slide .body { height: calc(100% - 60px); }
   .slide .bottom-link { height: 30px; }
+  .header { height: 30px; }
+  .nav { font-size: 14px; line-height: 30px; }
+  .nav a { padding-left: 10px; padding-right: 10px; }
+}
+
+@media screen and (min-height: 500px) {
+  img.bart-map { width: 400px; height: 400px; }
+  #hotels .body > div.note { margin-bottom: 20px; }
+}
+
+@media screen and (min-height: 300px) and (max-height: 500px) {
+  img.bart-map { width: 150px; height: 150px; }
 }
 
 
@@ -196,9 +159,11 @@ li.current a {
 
 .link {
   cursor: pointer;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, .7);
 }
 
-.slide.weekend-high-level hr {
+.slide hr {
   border: 0;
   width: 25%;
   border-bottom: 1px solid #666;
